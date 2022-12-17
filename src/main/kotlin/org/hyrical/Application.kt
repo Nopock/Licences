@@ -38,6 +38,9 @@ fun main() {
     )
 
     //commandHandler.pollInput()
+    Thread {
+        commandHandler.pollInput()
+    }.start()
 
     embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)
         .start(wait = true)
